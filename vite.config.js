@@ -3,6 +3,7 @@ import { resolve } from 'path';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  base: './',
   root: resolve(__dirname, 'src'),
   publicDir: resolve(__dirname, 'public'), // <--- Public directory
   build: {
