@@ -14,7 +14,7 @@ export function generateLoaderAbsoluteTemplate() {
 
 export function generateMainNavigationListTemplate() {
   return `
-    <li><a id="bookmark-button" class="bookmark-button" href="#/bookmark"></a></li>
+    <li><a id="bookmark-button" class="bookmark-button" href="#/bookmark">Bookmark</a></li>
   `;
 }
 

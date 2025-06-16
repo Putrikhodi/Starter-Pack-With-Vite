@@ -7,6 +7,7 @@ import AddStoryPage from '../pages/add/AddStory.js';
 import StoryDetailPage from '../pages/story-detail/story-detail-page';
 // import NewStoryGuestPage from '../pages/new-story-guest/new-story-guest-page';
 import OfflineStoriesPage from '../pages/OfflineStoriesPage';
+import BookmarkPage from './pages/BookmarkPage';
 
 const routes = {
   '/login': () => checkUnauthenticatedRouteOnly(new LoginPage()),
@@ -14,6 +15,7 @@ const routes = {
   '/': () => checkAuthenticatedRoute(new HomePage()),
   '/new-story': () => checkAuthenticatedRoute(new AddStoryPage()),
   '/offline': () => checkAuthenticatedRoute(new OfflineStoriesPage()),
+  '/saved-stories': BookmarkPage,
   // '/': () => (new LoginPage()),
 
 

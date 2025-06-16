@@ -24,6 +24,35 @@ class App {
     this.#content = content;
     this.#drawerButton = drawerButton;
     this.#drawerNavigation = drawerNavigation;
+    this._initialUI(); // <-- Panggil metode ini di constructor
+  }
+
+  _initialUI() {
+    // --- KODE UNTUK MENGISI NAVIGASI UTAMA ---
+    const navlist = document.getElementById('navlist');
+    if (navlist) {
+      navlist.innerHTML = generateMainNavigationListTemplate();
+      console.log('[App] Navigasi utama (#navlist) diisi.');
+    } else {
+      console.warn('[App] Elemen #navlist tidak ditemukan di DOM.');
+    }
+
+    // --- KODE UNTUK MENGISI NAVIGASI OTENTIKASI (JIKA ADA) ---
+    const navlistAuth = document.getElementById('navlist');
+    const isLoggedIn = localStorage.getItem('accessToken') ? true : false; // Sesuaikan logika pengecekan login Anda
+
+    if (navlistAuth) {
+      if (isLoggedIn) {
+        navlistAuth.innerHTML = generateAuthenticatedNavigationListTemplate(); // Ganti dengan = jika Anda tidak ingin menumpuk
+        console.log('[App] Navigasi autentikasi (#navlist) diisi (Authenticated).');
+      } else {
+        navlistAuth.innerHTML = generateUnauthenticatedNavigationListTemplate(); // Ganti dengan = jika Anda tidak ingin menumpuk
+        console.log('[App] Navigasi autentikasi (#navlist) diisi (Unauthenticated).');
+      }
+    } else {
+      console.warn('[App] Elemen #navlist tidak ditemukan di DOM.');
+    }
+
     this.#skipLinkButton = skipLinkButton;
 
     this.#init();
